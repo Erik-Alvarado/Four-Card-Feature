@@ -1,0 +1,162 @@
+main {
+  height: 100vh;
+  width: 100%;
+  background-color: $lightGray;
+  @include breakpoint-down(small) {
+    height: 100%;
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 0 150px;
+  @include breakpoint-down(x-large) {
+    padding: 0 100px;
+  }
+  @include breakpoint-down(large) {
+    padding: 0 75px;
+  }
+  @include breakpoint-down(medium) {
+    padding: 0 50px;
+  }
+  @include breakpoint-down(small) {
+    padding: 100px 25px;
+    justify-content: flex-start;
+  }
+  @include breakpoint-down(x-small) {
+    padding: 100px 0px;
+  }
+  @media (max-width: 375px) {
+    padding: 100px 35px;
+  }
+  .tech-text {
+    color: $veryDarkBlue;
+    width: 500px;
+    margin-bottom: 50px;
+    opacity: 0;
+    animation: fadeDown 1s ease forwards;
+    @include breakpoint-down(small) {
+      width: 400px;
+    }
+    @include breakpoint-down(x-small) {
+      width: 350px;
+      margin-bottom: 65px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      line-height: 50px;
+      margin-bottom: 15px;
+      @include breakpoint-down(small) {
+        font-size: 2rem;
+        line-height: 40px;
+      }
+      @include breakpoint-down(x-small) {
+        font-size: 1.75rem;
+      }
+      @media (max-width: 375px) {
+        font-size: 1.5rem;
+      }
+      span {
+        font-weight: 200;
+        color: $grayBlue;
+      }
+    }
+    p {
+      text-align: center;
+      color: $grayBlue;
+    }
+  }
+  .cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include breakpoint-down(small) {
+      flex-direction: column;
+    }
+    .card {
+      background: $base;
+      border-radius: 10px;
+      padding: 25px;
+      height: 225px;
+      width: 325px;
+      color: $veryDarkBlue;
+      border-top: 5px solid red;
+      box-shadow: 0 6px 10px hsla(234, 12%, 34%, 0.25);
+      position: relative;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards;
+
+      @include breakpoint-down(small) {
+        margin-bottom: 15px;
+      }
+      p {
+        color: $grayBlue;
+        font-size: 13px;
+        margin-top: 10px;
+      }
+      img {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin: 0 20px 20px 0;
+      }
+      &#karma {
+        border-top-color: $karmaOrange;
+        animation-delay: 0.35s;
+      }
+      &#team {
+        border-top-color: $teamRed;
+      }
+      &#super {
+        border-top-color: $superCyan;
+        animation-delay: 0.25s;
+      }
+      &#calc {
+        border-top-color: $calcBlue;
+        animation-delay: 0.25s;
+      }
+    }
+    .center-cards {
+      margin: 0 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 470px;
+      @include breakpoint-down(small) {
+        width: 670px;
+        flex-direction: row;
+        height: 100%;
+        justify-content: unset;
+      }
+      @include breakpoint-down(x-small) {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        justify-content: space-between;
+      }
+      .card {
+        &:nth-child(1) {
+          @include breakpoint-down(small) {
+            margin-right: 10px;
+          }
+          @include breakpoint-down(x-small) {
+            margin-right: 0;
+          }
+        }
+        &:nth-child(2) {
+          @include breakpoint-down(small) {
+            margin-left: 10px;
+          }
+          @include breakpoint-down(x-small) {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
